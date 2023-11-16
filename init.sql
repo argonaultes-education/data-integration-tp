@@ -6,6 +6,7 @@ DROP TYPE IF EXISTS mylocale;
 CREATE TABLE images(
     id SERIAL PRIMARY KEY,
     "path" TEXT,
+    public_url TEXT,
     created_at TIMESTAMP DEFAULT NOW() NOT NULL
 );
 
@@ -13,6 +14,7 @@ CREATE TABLE images(
 CREATE TABLE musics(
     id SERIAL PRIMARY KEY,
     "path" TEXT,
+    public_url TEXT,
     created_at TIMESTAMP DEFAULT NOW() NOT NULL
 );
 
@@ -23,6 +25,7 @@ CREATE TABLE videos(
     "path" TEXT,
     created_at TIMESTAMP DEFAULT NOW() NOT NULL,
     "length" INTERVAL,
+    public_url TEXT,
     captions BOOLEAN
 );
 
@@ -46,3 +49,4 @@ CREATE TABLE quotes_has_images(
     quote_id INT REFERENCES quotes(id),
     image_id INT REFERENCES images(id)
 );
+
